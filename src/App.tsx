@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from './components/atoms/Buttons/index';
 import Input from './components/atoms/Inputs/index';
 import Navbar from './components/atoms/Navbar/index';
 import Form from './components/atoms/Forms/Form';
 import MinecraftButton from './components/atoms/Buttons/MinecraftButton';
+import MusicPopup from './components/atoms/Popups/MusicPopup';
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
+  const [showPopup, setShowPopup] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const backgroundMusic = new Audio('./sound/minecraft.mp3'); // Création à l'intérieur de useEffect
+  
+    if (isPlaying) {
+      backgroundMusic.play();
+    } else {
+      backgroundMusic.pause();
+    }
+  
+    return () => {
+      backgroundMusic.pause();
+      backgroundMusic.currentTime = 0;
+    };
+  }, [isPlaying]);
 
   const formFields = [
     { name: 'firstName', label: 'Prénom', placeholder: 'Prénom', type: 'text' },
@@ -19,8 +37,15 @@ const App: React.FC = () => {
     { name: 'confirmPassword', label: 'Confirmer votre mot de passe', placeholder: 'Confirmer votre mot de passe', type: 'password' }
   ];
 
+
+  const handleMusicPermission = (permission: boolean) => {
+    setShowPopup(false);
+    setIsPlaying(permission);
+  };
+
   const handleInputChange = (value: string) => {
     setInputValue(value);
+  
   };
   return (
     <>
@@ -30,8 +55,10 @@ const App: React.FC = () => {
           backgroundColor="#EDF2F4"
           searchPlaceholder="Recherche exemple"
         />
+        
       <div className="p-5 m-20">
         <h1 className="text-2xl mb-4">UI Kit Exemples Boutons</h1>
+        <MusicPopup onAccept={() => handleMusicPermission(true)} onDecline={() => handleMusicPermission(false)} />
         <h1 className="mb-8 text-3xl">Minecraft Style Button</h1>
           <MinecraftButton
             label="Bouton minecraft"
