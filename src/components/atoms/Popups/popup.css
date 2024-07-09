@@ -12,11 +12,16 @@
 }
 
 .popup-content {
-  background-color: #fff;
   text-align: center;
   z-index: 10000;
 }
 
 .popup-content button {
   cursor: pointer;
+}
+
+.minecraftText {
+  font-family: 'MinecraftRegular', sans-serif;
+  color: #fff;
+  text-shadow: 1px 1px 0 #1f2937, 2px 2px 0 #000;
 }

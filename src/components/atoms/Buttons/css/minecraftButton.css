@@ -10,20 +10,15 @@
     background-color: #AAAAAA;
     position: relative;
     color: #fff;
-    text-shadow: 1px 1px 0 #1f2937, /* Gris foncé */
-                 2px 2px 0 #000;    /* Noir */
+    text-shadow: 1px 1px 0 #1f2937,
+                 2px 2px 0 #000;   
     border: 1px solid #000;
-    background-image: url('../../../../../public/img/stonetexture.jpg') format('opentype');
     ;
   }
-  
-  .MinecraftButton:hover {
-    background-color: #AAAAAA;
-    transform: scale(1.05);
-  }
 
-  .MinecraftButton:hover{
-    background-color: rgb(125, 163, 246) ;
+  .MinecraftButton:hover {
+    background-color: rgb(125, 163, 246);
+    transform: scale(1.05);
   }
 
   .MinecraftButton::before {
@@ -40,7 +35,7 @@
     pointer-events: none;
     background-size: cover;
     background-position: center;
-    background-image: url('../../../../../public/img/stonetexture.jpg');
+    
     opacity: 0.5;
     z-index: 1;
   }

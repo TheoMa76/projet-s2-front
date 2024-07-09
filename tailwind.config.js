@@ -8,6 +8,8 @@ module.exports = {
       backgroundImage: {
         'primary-gradient': 'linear-gradient(45deg, #2B2D42, #8D99AE)',
         'secondary-gradient': 'linear-gradient(45deg, #EF233C, #D90429)',
+        'stone': 'url(\'../public/img/stonetexture.jpg\')',
+        'dirt': 'url(\'./images/dirt.jpeg\')',
       },
       backgroundColor: {
         'custom-white': '#EDF2F4',

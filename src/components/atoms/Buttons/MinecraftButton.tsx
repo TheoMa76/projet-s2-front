@@ -15,7 +15,7 @@ interface ButtonProps {
 }
 
 const playClickSound = () => {
-  const audio = new Audio('./sound/test.mp3');
+  const audio = new Audio('./sound/minecraft-menu-button.mp3');
   if (audio) {
     audio.currentTime = 0;
     audio.play().catch((error) => {
@@ -37,8 +37,7 @@ const MinecraftButton: React.FC<ButtonProps> = ({
   type = 'button',
 }) => {
   const baseClasses = 'MinecraftButton py-2 px-4 tracking-wide text-xl text-white';
-  const hoverClasses = 'hover:scale-105';
-  
+  const hoverClasses = 'hover:scale-105 before:bg-stone';
 
   return (
     <>
