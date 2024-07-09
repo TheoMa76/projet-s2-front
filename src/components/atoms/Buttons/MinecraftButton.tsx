@@ -1,6 +1,5 @@
 import React from 'react';
-import './/css/minecraftButton.css';
-
+import './css/minecraftButton.css';
 
 type ButtonVariant = 'primary' | 'secondary';
 
@@ -16,17 +15,22 @@ interface ButtonProps {
 }
 
 const playClickSound = () => {
-  const audio = document.getElementById('click-sound') as HTMLAudioElement;
-  console.log("OUHOH");
-  
-  audio.play();
+  const audio = new Audio('./sound/test.mp3');
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play().catch((error) => {
+      console.error("Error playing audio:", error);
+    });
+  } else {
+    console.error("Audio element not found");
+  }
 }
 
 const MinecraftButton: React.FC<ButtonProps> = ({
   variant = 'primary',
   onClick = playClickSound,
   disabled = false,
-  style = '',
+  style = {},
   className = '',
   label = '',
   icon,
@@ -34,22 +38,24 @@ const MinecraftButton: React.FC<ButtonProps> = ({
 }) => {
   const baseClasses = 'MinecraftButton py-2 px-4 tracking-wide text-xl text-white';
   const hoverClasses = 'hover:scale-105';
-
+  
 
   return (
     <>
-  <audio controls id="click-sound" src="./src/sound/test.mp3">
-    </audio>
-    <button
-      className={`${baseClasses} ${hoverClasses} ${className}`}
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={label}
-      type={type}
-    >
-      {icon && <span className="mr-2">{icon}</span>}
-      <span>{label}</span>
-    </button>
+      <button
+        className={`${baseClasses} ${hoverClasses} ${className}`}
+        onClick={() => {
+          playClickSound();
+          if (onClick) onClick();
+        }}
+        disabled={disabled}
+        aria-label={label}
+        type={type}
+        style={style}
+      >
+        {icon && <span className="mr-2">{icon}</span>}
+        <span>{label}</span>
+      </button>
     </>
   );
 };
