@@ -13,7 +13,7 @@
     text-shadow: 1px 1px 0 #1f2937, /* Gris foncé */
                  2px 2px 0 #000;    /* Noir */
     border: 1px solid #000;
-    background-image: url('../../../../img/stonetexture.jpg') format('opentype');
+    background-image: url('../../../../../public/img/stonetexture.jpg') format('opentype');
     ;
   }
   
@@ -40,7 +40,7 @@
     pointer-events: none;
     background-size: cover;
     background-position: center;
-    background-image: url('../../../../img/stonetexture.jpg');
+    background-image: url('../../../../../public/img/stonetexture.jpg');
     opacity: 0.5;
     z-index: 1;
   }

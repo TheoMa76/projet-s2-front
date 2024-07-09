@@ -8,7 +8,6 @@ import MusicPopup from './components/atoms/Popups/MusicPopup';
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState('');
-  const [showPopup, setShowPopup] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ const App: React.FC = () => {
 
 
   const handleMusicPermission = (permission: boolean) => {
-    setShowPopup(false);
     setIsPlaying(permission);
   };
 
