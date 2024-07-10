@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MinecraftButton from './components/atoms/Buttons/MinecraftButton';
 import MusicPopup from './components/atoms/Popups/MusicPopup';
+import AwesomeTitle from './components/atoms/Texts/Title/AwesomeTitle';
 
 const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -36,6 +37,7 @@ const App: React.FC = () => {
           <MinecraftButton
             label="Bouton minecraft"
           />
+          <AwesomeTitle>Meeting expectations!</AwesomeTitle>
       </div>
     </>
   );

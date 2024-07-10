@@ -9,12 +9,6 @@
   font-style: normal;
 }
 
-body {
-  margin: 0;
-  font-family: 'Montserrat Alternative';
-  background-color:#EDF2F4;;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
