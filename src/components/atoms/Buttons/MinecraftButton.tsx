@@ -36,13 +36,19 @@ const MinecraftButton: React.FC<ButtonProps> = ({
   icon,
   type = 'button',
 }) => {
-  const baseClasses = 'MinecraftButton py-2 px-4 tracking-wide text-xl text-white';
-  const hoverClasses = 'hover:scale-105 before:bg-stone';
+  const baseClasses = 'MinecraftButton bg-minecraft-button border border-solid border-2 border-black relative py-2 px-4 tracking-wide text-xl text-white';
+  const hoverClasses = 'hover:scale-105 hover:bg-minecraft-hover';
+  const beforeClasses = `before:bg-stone before:absolute 
+  before:top-0 before:left-0 before:w-full before:h-full before:border before:border-4 
+  before:border-solid before:border-custom-white  before:border-b-4 before:border-b-solid 
+  before:border-b-custom-dark-grey before:border-r-0 before:pointer-events-none 
+  before:bg-cover before:bg-center before:opacity-50 before:transition-all before:z-10`;
+  const spanClasses = `relative z-20`;
 
   return (
     <>
       <button
-        className={`${baseClasses} ${hoverClasses} ${className}`}
+        className={`${baseClasses} ${hoverClasses} ${beforeClasses} ${className}`}
         onClick={() => {
           playClickSound();
           if (onClick) onClick();
@@ -53,7 +59,7 @@ const MinecraftButton: React.FC<ButtonProps> = ({
         style={style}
       >
         {icon && <span className="mr-2">{icon}</span>}
-        <span>{label}</span>
+        <span className={spanClasses}>{label}</span>
       </button>
     </>
   );

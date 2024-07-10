@@ -1,6 +1,6 @@
 import MinecraftButton from '../Buttons/MinecraftButton';
-import './popup.css';
 import React, { useState } from 'react';
+import MinecraftHN from '../Texts/Title/MinecraftHN';
 
 interface MusicPopupProps {
   onAccept: () => void;
@@ -25,24 +25,20 @@ const MusicPopup: React.FC<MusicPopupProps> = ({
     setIsVisible(false);
   };
 
-  const combinedStyle = {
-    ...style,
-    backgroundImage: 'url(/img/dirt.jpeg)',
-    overflow : 'hidden',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'repeat',
-    backdropFilter: 'color(0, 0, 0, 0.5)',
-  };
 
   if (!isVisible) {
     return null;
   }
 
+  const overlayClasses = `fixed overflow-hidden z-30 bg-center bg-repeat top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full 
+  h-full z-50 bg-dirt `;
+  const contentClasses = 'text-center flex flex-col items-center justify-center z-40 w-2/4 h-2/4 mx-auto my-2/4 bg-transparent py-2 px-3 text-center relative z-60 opacity-100';
+
   return (
     <>
-    <div className="popup-overlay fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center w-full h-full z-50 opacity-70" style={combinedStyle}></div>
-      <div className="popup-content w-2/4 mx-auto my-auto bg-transparent py-2 px-3 text-center relative z-60 opacity-100">
-        <h2 className='text-2xl minecraftText'>Voulez-vous activer la musique de fond ?</h2>
+    <div className={overlayClasses}></div>
+      <div className={contentClasses}>
+        <MinecraftHN as='h3'>Voulez-vous activer la musique ?</MinecraftHN>
         <MinecraftButton onClick={handleAccept} label='Oui' className='m-3 w-2/4'></MinecraftButton>
         <MinecraftButton onClick={handleDecline} label='Non' className='m-3 w-2/4'></MinecraftButton>
     </div>
