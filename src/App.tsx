@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MinecraftButton from './components/atoms/Buttons/MinecraftButton';
 import MusicPopup from './components/atoms/Popups/MusicPopup';
 import AwesomeTitle from './components/atoms/Texts/Title/AwesomeTitle';
+import TextChat from './components/atoms/Texts/TextBlock/TextChat';
 
 const App: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -38,6 +39,7 @@ const App: React.FC = () => {
             label="Bouton minecraft"
           />
           <AwesomeTitle>Meeting expectations!</AwesomeTitle>
+          <TextChat className="text-white text-2xl">Testing text</TextChat>
       </div>
     </>
   );
